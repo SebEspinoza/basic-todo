@@ -2,13 +2,20 @@
   let newCardTitle = "";
   let newCardText = "";
   let cards = [];
+  let status = false;
+  let date = new Date();
 
   function addCard() {
     newCardTitle === "" || newCardText == ""
       ? alert("Please fill in all fields")
       : (cards = [
           ...cards,
-          { title: newCardTitle, text: newCardText, status: false },
+          {
+            title: newCardTitle,
+            text: newCardText,
+            status: status,
+            date: date.toLocaleDateString(),
+          },
         ]);
     localStorage.setItem("cards", JSON.stringify(cards));
     (newCardTitle = ""), (newCardText = "");
@@ -57,10 +64,19 @@
             class="btn btn-xs btn-square btn-error"
             on:click={() => removeCard(index)}>❌</button
           >
+          <button
+            on:click={() => {
+              card.status = !card.status;
+              localStorage.setItem("test", JSON.stringify(cards));
+            }}
+            class="btn btn-xs btn-square btn-success">✅</button
+          >
         </div>
         <div class="card-body text-center">
           <h1 class="card-title text-black">{card.title}</h1>
           <p class="text-black">{card.text}</p>
+          <p class="text-black">{card.date}</p>
+          <p class="text-black">{card.status ? "Completed" : "Uncomplete"}</p>
         </div>
       </div>
     {/each}
