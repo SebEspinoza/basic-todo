@@ -67,7 +67,7 @@
           <button
             on:click={() => {
               card.status = !card.status;
-              localStorage.setItem("test", JSON.stringify(cards));
+              localStorage.setItem("cards", JSON.stringify(cards));
             }}
             class="btn btn-xs btn-square btn-success">✅</button
           >
