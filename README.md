@@ -8,5 +8,7 @@ Made with Vite + Svelte & DaisyUI.
 
 ------------------
 To add:
-* Task date
-* Completion of task
+* ~~Task date~~
+* ~~Completion of task~~
+* Account login
+
